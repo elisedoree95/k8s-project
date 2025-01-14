@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernets-bootcamp
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubernets-bootcamp
+  template:
+    metadata:
+      labels:
+        app: kubernets-bootcamp
+    spec:
+      containers:
+        - name: nginx
+          image: gcr.io/google-samples/kubernetes-bootcamp:v1
+          ports:
+            - containerPort: 80
